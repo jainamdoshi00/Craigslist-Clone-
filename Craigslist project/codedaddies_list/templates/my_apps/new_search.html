@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2 style="text-align:center">{{search | title}}</h2> <!--| title will make first letter of every word capital -->
+<div class="row">
+        {% for post in final_postings %}
+            <div class="col s4"> <!--because of this we are getting three images-->
+                <div class="card">
+                    <div class="card-image">
+                        <a href="{{ post.1 }}"><img src="{{ post.3 }}" alt=""></a> <!--since image ka size changes so for that see style.css-->
+                    </div>
+                    <div class="card-content">
+                        <p>{{ post.0 }}</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="{{ post.1 }}">View listing: Price {{ post.2 }}</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock content %}
